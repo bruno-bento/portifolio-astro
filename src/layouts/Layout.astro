@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Bruno Bento</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+	}
+
+
+	html, body {
+		padding: 0;
+		margin: 0;
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+		overflow: hidden;
+		background: linear-gradient(#131E3C, #0B1224);
+	}
+</style>
