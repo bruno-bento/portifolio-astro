@@ -2,12 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Snowflake from '../components/Snowflake.svelte';
 import TypeWritter from '../components/TypeWritter.svelte';
-const texts = ["Texto 1", "Texto 2", "Texto 3"];
+const texts = ["Desenvolvedor Full Stack", "UI/UX Designer"	];
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout>
 	<Snowflake/>
-
 	<main class="flex min-h-screen items-center justify-center">
 		<div class="w-max">
 			 <TypeWritter texts={texts} client:load/>
