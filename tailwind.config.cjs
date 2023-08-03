@@ -3,6 +3,12 @@ module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			colors: {
+				'primary-blue':'#0B1224',
+				'secondary-blue':'#131E3C',
+				'primary-yellow' :'#FFD02B',
+				'secondary-yellow':'#FFDE66',
+			},
 			keyframes: {
 				typing: {
 				  "0%": {
@@ -19,7 +25,7 @@ module.exports = {
 				},
 			  },
 			  animation: {
-				blink: "blink 0.8s infinite"
+				blink: "blink 0.8s infinite",
 			}
 		},
 	},

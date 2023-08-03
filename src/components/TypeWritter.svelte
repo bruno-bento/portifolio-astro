@@ -49,7 +49,6 @@ import { onMount, onDestroy } from 'svelte';
 <!-- Child Component -->
 <div class="flex w-auto gap-4">
     <div class="h-24 flex flex-col text-white items-center bg-transparent"> 
-      
       <h1 class="sm:text-5xl text-4xl font-bold">Bruno <span class="text-[#FFD02B] ">Bento</span></h1>
       <span class="sm:text-3xl text-2xl underline decoration-[#FFD02B] font-bold after:content-['|']  after:animate-blink after:text-">
         {text}
