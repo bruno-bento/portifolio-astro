@@ -10,7 +10,6 @@
             );
             if (response.ok) {
                 userData = await response.json();
-                console.log(userData);
             } else {
                 throw new Error("Failed to fetch user profile");
             }
@@ -26,7 +25,6 @@
             if (response.ok) {
                 userRepo = await response.json();
                 userRepo = userRepo.slice(1);
-                console.log(userRepo);
             } else {
                 throw new Error("Failed to fetch user repos");
             }
@@ -38,8 +36,9 @@
     fetchUserRepo();
 </script>
 
+<div class="grid grid-cols-2 w-1/2 gap-6">
 {#if userData}
-    <div class="relative w-96 group">
+    <div class="relative w-full col-span-2 group">
         <div
             class="absolute -inset-1 bg-gradient-to-r from-primary-yellow to-secondary-yellow rounded-lg blur opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"
         />
@@ -66,26 +65,26 @@
     </div>
 
     {#if userRepo && userRepo.length > 0}
-        <div class="text-white grid grid-cols-1 gap-8">
+        <div class="text-white col-span-2 grid grid-cols-2 w-full gap-6 place-content-stretch">
             {#each userRepo as repo}
-                <div class="relative w-96 group">
+                <div class="relative w-full group">
                     <div
                         class="border border-white absolute -inset-1 rounded-lg group-hover:opacity-100 transition duration-1000 group-hover:duration-200 text-white"
                     />
                     <div
-                        class="relative px-7 py-6 bg-transparent ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6"
+                        class="h-full relative px-4 py-3 bg-transparent ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6"
                     >
                         <div class="flex flex-col justify-between gap-8">
-                            <p class=" font-bold text-xl">
+                            <p class=" font-bold text-xl text-primary-yellow uppercase">
                                 {repo.name}
                             </p>
-                            <p class="font-medium text-base">
-                                {repo.description}
+                            <p class="font-medium text-lg">
+                                {repo.description ?? "Sem descrição"}
                             </p>
                             <a
                                 href={repo.html_url}
-                                class="block text-sm font-normal  transition duration-200"
-                                target="_blank">Github →</a
+                                class="block text-base font-normal transition duration-200 hover:text-primary-yellow hover:after:content-['→'] hover:after:pl-2"
+                                target="_blank">Github</a
                             >
                         </div>
                     </div>
@@ -102,3 +101,4 @@
 {:else}
     <p>Loading...</p>
 {/if}
+</div>
