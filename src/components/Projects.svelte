@@ -2,7 +2,6 @@
     let userData = null;
     let userRepo = null;
     let error = null;
-
     async function fetchUserProfile() {
         try {
             const response = await fetch(
@@ -36,7 +35,9 @@
     fetchUserRepo();
 </script>
 
-<div class="grid grid-cols-2 w-1/2 gap-6">
+
+
+<div class="grid grid-cols-2 w-4/5 md:w-1/2 gap-6">
 {#if userData}
     <div class="relative w-full col-span-2 group">
         <div
@@ -65,7 +66,7 @@
     </div>
 
     {#if userRepo && userRepo.length > 0}
-        <div class="text-white col-span-2 grid grid-cols-2 w-full gap-6 place-content-stretch">
+        <div class="text-white col-span-2 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 w-full gap-6 place-content-stretch">
             {#each userRepo as repo}
                 <div class="relative w-full group">
                     <div
