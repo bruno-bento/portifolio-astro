@@ -1,47 +1,46 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Snowflake from '../components/Snowflake.svelte';
-import TypeWritter from '../components/TypeWritter.svelte';
-import Projects from '../components/Projects.svelte';
-import Curriculum from '../BrunoBento_CV.pdf';
+import Layout from "../layouts/Layout.astro";
+import Snowflake from "../components/Snowflake.svelte";
+import TypeWritter from "../components/TypeWritter.svelte";
+import Projects from "../components/Projects.svelte";
+import Curriculum from "../BrunoBento_CV.pdf";
+import RightMenu from "../components/RightMenu.svelte";
+import CustomButton from "../components/CustomButton.svelte"
 
-const texts = ["Desenvolvedor Full Stack", "UI/UX Designer"	];
-
+const texts = ["Desenvolvedor Full Stack", "UI/UX Designer"];
 ---
 
+<Layout>
+	<div class="w-full h-screen overflow-y-scroll snap-y snap-mandatory text-white">
+		<RightMenu client:load ></RightMenu>
 
-<Layout >
-	<Snowflake/>
-	<div class="flex min-h-screen items-center justify-center mb-20">
-		<div class="w-max">
-			 <TypeWritter texts={texts} client:load/>
-		</div>
-	</div>
-	<div class="flex flex-col gap-8 items-center justify-center h-1/4 mb-20">
-		<h2 class="sm:text-5xl text-4xl font-bold text-white">
-			Currículo
-		</h2>
-		<div class="relative group">
-			<div class="absolute -inset-0.5 bg-gradient-to-r from-primary-yellow to-secondary-yellow rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-			<button class="relative px-7 py-4 bg-[#131E3C] rounded-lg leading-none flex items-center divide-x divide-gray-600">
-			  <span class="flex items-center space-x-5">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-primary-yellow">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-				  </svg>
-				  
-				<a href={Curriculum} download="BrunoBento_CV" target='_blank' class="pr-6 text-white font-bold text-xl ">
-					Currículo
-				</a>
-			  </span>
-			</button>
-		  </div>
+		<Snowflake />
+
+		<section id="home" class="snap-center h-screen flex flex-col items-center justify-center">
+			<TypeWritter texts={texts} client:load />
+		</section>
+		<section id="about" class="snap-center h-screen flex flex-col items-center justify-center gap-8">
+			<h2 class="sm:text-5xl text-4xl font-bold underline decoration-[#FFD02B]">Sobre</h2>
+			<p class=" text-xl w-1/2 text-justify">
+				Desenvolvedor Full Stack com experiência em otimização e depuração de aplicações.
+				 Tecnólogo em Análise e Desenvolvimento de Sistemas, apaixonado por aprender e aprimorar minhas habilidades. Sempre curioso e em busca de novos conhecimentos para me manter atualizado no campo da tecnologia.
+			</p>
+			<p class=" text-lg text-justify">
+				Trabalhando no Grupo DETK. Com sede em São Paulo - Barueri.
+			</p>
+		</section>
+		<section id="project" class="snap-center h-screen flex flex-col gap-8  items-center justify-start pt-10">
+			<h2 class="sm:text-5xl text-4xl font-bold text-white">Projetos</h2>
+			<Projects client:load />
+		</section>
+		<section id="contact" class="snap-center flex flex-col gap-8 h-screen items-center justify-center ">
+			<h2 class="sm:text-5xl text-4xl font-bold text-white">Contato</h2>
+			<div class="relative group">
+				<CustomButton buttonText="Baixar CV" />
+			</div>
+		</section>
 
 	</div>
 
-	<div class="flex flex-col gap-8 min-h-screen items-center justify-start ">
-		<h2 class="sm:text-5xl text-4xl font-bold text-white">
-			Projetos
-		</h2>
-		<Projects client:load/>
-	</div>
+
 </Layout>
